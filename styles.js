@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     height: '16.6%'
   },
   textOpeBtn:{
-    width: '25%',
+    width: '20%',
     backgroundColor: 'rgb(20,20,20)',
     justifyContent: "center",
     alignItems: "center",

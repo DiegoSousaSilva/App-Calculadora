@@ -19,8 +19,19 @@ for (var i = 0; i <=9; i++){
   numbers.push(i);
 }
 
-const logic = () =>{
-  alert('test');
+const logic = (n) =>{
+  if (signal == ''){
+    setFirstNumber(parseInt(firstNumber.toString() + n.toString()));
+    setStrcalc(parseInt(firstNumber.toString() + n.toString()));
+  }
+  if((n=='+' || n=='-' || n=='/' || n=='*' ) && secondNumber == 0){
+    setStrcalc(firstNumber.toString() + n);
+    setSignal(n);
+  }
+  if (signal!= ''){
+    setSecondNumber(parseInt(secondNumber.toString() + n.toString()));
+    setStrcalc(firstNumber+signal+parseInt(secondNumber.toString() + n.toString()));
+  }
 }
  
   return (
@@ -28,10 +39,11 @@ const logic = () =>{
       <View style={styles.topo}><Text style={styles.textTopo}> {strCalc} </Text></View>
 
       <View style={styles.operadores}>
-        <TouchableOpacity style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>+</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>-</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>/</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>*</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=>logic('+')} style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>+</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=>logic('-')} style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>-</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=>logic('/')} style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>/</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=>logic('*')} style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>*</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=>logic('=')} style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>=</Text></TouchableOpacity>
       </View>
 
       <View style={styles.numbers}>

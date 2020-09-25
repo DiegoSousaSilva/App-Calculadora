@@ -5,7 +5,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 const Botao = (props) => {
   return (
     <View style={styles.view}>
-      <TouchableOpacity onPress={()=>props.logic()} style={styles.touch}>
+      <TouchableOpacity onPress={()=>props.logic(props.numbers)} style={styles.touch}>
         <Text style={styles.txt}>{props.numbers}</Text>
       </TouchableOpacity>
     </View>
