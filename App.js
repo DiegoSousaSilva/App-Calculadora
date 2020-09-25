@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import {Text, TouchableHighlight, View } from 'react-native';
+import {Text, TouchableOpacity, View } from 'react-native';
 import Botao from './src/Botao';
 
 import styles from './styles';
@@ -18,23 +18,27 @@ var numbers = [];
 for (var i = 0; i <=9; i++){
   numbers.push(i);
 }
+
+const logic = () =>{
+  alert('test');
+}
  
   return (
     <View style={styles.container}>
       <View style={styles.topo}><Text style={styles.textTopo}> {strCalc} </Text></View>
 
       <View style={styles.operadores}>
-        <TouchableHighlight style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>+</Text></TouchableHighlight>
-        <TouchableHighlight style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>-</Text></TouchableHighlight>
-        <TouchableHighlight style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>/</Text></TouchableHighlight>
-        <TouchableHighlight style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>*</Text></TouchableHighlight>
+        <TouchableOpacity style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>+</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>-</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>/</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.textOpeBtn}><Text style={styles.textOpeTxt}>*</Text></TouchableOpacity>
       </View>
 
-      <View>
+      <View style={styles.numbers}>
           {
             numbers.map((e)=>{
               return (
-                <Botao numbers={e}></Botao>
+                <Botao logic={logic} numbers={e}></Botao>
               )
             })
           }
