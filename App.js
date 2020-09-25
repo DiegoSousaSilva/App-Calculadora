@@ -32,6 +32,25 @@ const logic = (n) =>{
     setSecondNumber(parseInt(secondNumber.toString() + n.toString()));
     setStrcalc(firstNumber+signal+parseInt(secondNumber.toString() + n.toString()));
   }
+  if (n == '='){
+    let result = 0;
+    if(signal == "+"){
+      result = firstNumber+secondNumber;
+    }
+    else if(signal == "-"){
+      result = firstNumber-secondNumber;
+    }
+    else if(signal == "/"){
+      result = firstNumber/secondNumber;
+    }
+    else if(signal == "*"){
+      result = firstNumber*secondNumber;
+    }
+    setStrcalc(result);
+    setSignal('');
+    setFirstNumber(result);
+    setSecondNumber(0);
+  }
 }
  
   return (
