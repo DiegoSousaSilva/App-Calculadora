@@ -67,9 +67,9 @@ const logic = (n) =>{
 
       <View style={styles.numbers}>
           {
-            numbers.map((e)=>{
+            numbers.map((e, k)=>{
               return (
-                <Botao logic={logic} numbers={e}></Botao>
+                <Botao key={k} logic={logic} numbers={e}></Botao>
               )
             })
           }
